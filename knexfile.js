@@ -9,5 +9,6 @@ module.exports = {
       database: 'barriga',
     },
     migrations: { directory: './src/migrations' },
+    seeds: { directory: './src/seeds' },
   }
 };

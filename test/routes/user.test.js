@@ -68,13 +68,14 @@ test('Não deve inserir usuário sem email',async () => {
 
 test('Não deve inserir usuário sem senha', (done) => {
   request(app).post(MAIN_ROUTE)
-    .send({name: 'Walter Mitty',mail: 'walter@mail.com'})
+    .send({ name: 'Walter Mitty', mail: 'walter@mail.com' })
     .set('authorization', `bearer ${user.token}`)
     .then((res) => {
       expect(res.status).toBe(400)
       expect(res.body.error).toBe('Senha é um atributo obrigatório')
       done()
-    }).catch(err => done.fail(err))
+    })
+    .catch(err => done.fail(err))
 })
 
 test('Não deve inserir usuário com email existente', () => {
